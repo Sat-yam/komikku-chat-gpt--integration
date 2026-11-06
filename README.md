@@ -33,6 +33,16 @@ A free and open source manga reader which is based off TachiyomiSY & Mihon/Tachi
 
 <div align="left">
 
+## Experimental ChatGPT integration fork
+
+This fork is adding an optional, privacy-first ChatGPT integration for Komikku. It is still under active development: device identity and the native settings foundation are present, but remote pairing, the relay, and live ChatGPT library actions are not available yet.
+
+![Komikku × ChatGPT project banner](./docs/assets/komikku-chatgpt-banner.svg)
+
+![Project progress and next milestones](./docs/assets/komikku-chatgpt-project-update.svg)
+
+See the [integration design and implementation status](./docs/chatgpt-integration/README.md).
+
 ## Features
 
 ### Komikku's unique features:

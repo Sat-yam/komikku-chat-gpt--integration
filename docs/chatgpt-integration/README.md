@@ -1,6 +1,13 @@
 # Komikku ↔ ChatGPT integration
 
-Status: **Milestone 1 — native read facade and access-policy foundation**
+![Komikku × ChatGPT banner](../assets/komikku-chatgpt-banner.svg)
+
+![Current project update](../assets/komikku-chatgpt-project-update.svg)
+
+![Splash-screen artwork concept](../assets/komikku-chatgpt-splash.svg)
+
+
+Status: **Native integration foundation, initial branding, and Android launcher/splash mark committed; secure pairing and relay remain next**
 
 This is an opt-in integration for a user-authorized Komikku installation. The user selected:
 - Custom Komikku build

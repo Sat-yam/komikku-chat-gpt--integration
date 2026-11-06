@@ -20,7 +20,7 @@ Still planned:
 3. Remote authorization exchanges the code and verifies a challenge signature for a narrowly scoped, revocable device pairing.
 4. App displays the connected remote client and supports immediate disconnect/revocation.
 
-Never store private keys in ordinary preferences or source code. Never put provider credentials in logs. The current settings screen only creates and displays public identity details; it does not claim pairing or expose a network endpoint.
+Never store private keys in ordinary preferences or source code. Never put provider credentials in logs. The current settings screen creates and displays public identity details and a locally generated QR request preview. It does not claim pairing, authenticate a remote client, or expose a network endpoint.
 
 ## Request validation
 

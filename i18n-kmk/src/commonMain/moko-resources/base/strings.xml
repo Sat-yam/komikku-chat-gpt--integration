@@ -268,4 +268,20 @@
     <string name="chatgpt_integration_identity_remove_body">This deletes the signing key stored by Komikku on this phone. It does not revoke a remote pairing.</string>
     <string name="chatgpt_integration_identity_remove_confirm">Remove key</string>
     <string name="chatgpt_integration_identity_ready">Local signing key is ready. This phone is not paired with a relay yet.</string>
+
+    <string name="chatgpt_pairing_group">Device pairing</string>
+    <string name="chatgpt_pairing_generate">Generate pairing request</string>
+    <string name="chatgpt_pairing_create_identity_first">Create a secure device identity before generating a pairing request.</string>
+    <string name="chatgpt_pairing_generate_summary">Create a QR code and short-lived pairing reference for this device.</string>
+    <string name="chatgpt_pairing_generation_failed">Could not generate the pairing request. Check the device identity and try again.</string>
+    <string name="chatgpt_pairing_relay_not_configured">Pairing request preview is available. A relay endpoint is not configured yet, so this request cannot connect ChatGPT.</string>
+    <string name="chatgpt_pairing_request_title">Pair this Komikku device</string>
+    <string name="chatgpt_pairing_qr_content_description">Short-lived Komikku device pairing request QR code</string>
+    <string name="chatgpt_pairing_request_code">Pairing request reference</string>
+    <string name="chatgpt_pairing_request_expires">Request expires in %1$s</string>
+    <string name="chatgpt_pairing_request_expired">This request has expired. Generate a new request.</string>
+    <string name="chatgpt_pairing_request_local_only">This QR contains public device details only. It is not proof of pairing; the relay must verify a fresh challenge signature.</string>
+    <string name="chatgpt_pairing_request_fingerprint">Device fingerprint: %1$s</string>
+    <string name="chatgpt_pairing_copy_code">Copy code</string>
+    <string name="chatgpt_pairing_regenerate">New request</string>
 </resources>

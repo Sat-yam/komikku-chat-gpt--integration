@@ -4,6 +4,8 @@ import android.app.Application
 import eu.kanade.domain.base.BasePreferences
 import eu.kanade.domain.chatgpt.service.ChatGptDeviceIdentity
 import eu.kanade.domain.chatgpt.service.ChatGptIntegrationPreferences
+import eu.kanade.domain.chatgpt.service.ChatGptPairingQrCodeGenerator
+import eu.kanade.domain.chatgpt.service.ChatGptPairingRequestFactory
 import eu.kanade.domain.connections.service.ConnectionsPreferences
 import eu.kanade.domain.source.service.SourcePreferences
 import eu.kanade.domain.sync.SyncPreferences
@@ -67,6 +69,8 @@ class PreferenceModule(val app: Application) : InjektModule {
         // KMK -->
         addSingletonFactory { ChatGptIntegrationPreferences(get()) }
         addSingletonFactory { ChatGptDeviceIdentity() }
+        addSingletonFactory { ChatGptPairingRequestFactory() }
+        addSingletonFactory { ChatGptPairingQrCodeGenerator() }
         // KMK <--
         addSingletonFactory {
             DownloadPreferences(get())

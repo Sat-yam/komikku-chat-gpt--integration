@@ -1,9 +1,5 @@
 package eu.kanade.domain
 
-// KMK -->
-import eu.kanade.tachiyomi.integration.chatgpt.ChatGptLibraryService
-// KMK <--
-
 import eu.kanade.domain.chapter.interactor.GetAvailableScanlators
 import eu.kanade.domain.chapter.interactor.SetReadStatus
 import eu.kanade.domain.chapter.interactor.SyncChaptersWithSource
@@ -29,6 +25,7 @@ import eu.kanade.domain.track.interactor.AddTracks
 import eu.kanade.domain.track.interactor.RefreshTracks
 import eu.kanade.domain.track.interactor.SyncChapterProgressWithTrack
 import eu.kanade.domain.track.interactor.TrackChapter
+import eu.kanade.tachiyomi.integration.chatgpt.ChatGptLibraryService
 import mihon.data.extension.repository.ExtensionStoreRepositoryImpl
 import mihon.data.extension.service.ExtensionStoreService
 import mihon.domain.chapter.interactor.FilterChaptersForDownload

@@ -213,6 +213,14 @@ object SettingsMainScreen : Screen() {
             icon = Icons.Outlined.Sync,
             screen = SettingsTrackingScreen,
         ),
+        // KMK -->
+        Item(
+            titleRes = KMR.strings.chatgpt_integration_title,
+            subtitleRes = KMR.strings.chatgpt_integration_menu_summary,
+            icon = Icons.Outlined.Link,
+            screen = SettingsChatGptScreen,
+        ),
+        // KMK <--
         // AM (CONNECTIONS) -->
         Item(
             titleRes = KMR.strings.pref_category_connections,

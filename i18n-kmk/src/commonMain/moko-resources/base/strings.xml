@@ -238,4 +238,18 @@
     <string name="pref_discord_show_download_button_summary">Displays a button to download the app</string>
     <string name="pref_discord_show_discord_button">Show Discord Button</string>
     <string name="pref_discord_show_discord_button_summary">Displays a button to join the Discord server</string>
+
+    <!-- ChatGPT integration -->
+    <string name="chatgpt_integration_title">ChatGPT integration</string>
+    <string name="chatgpt_integration_menu_summary">Connect ChatGPT to your Komikku library</string>
+    <string name="chatgpt_integration_group">Integration</string>
+    <string name="chatgpt_integration_enable">Enable ChatGPT integration</string>
+    <string name="chatgpt_integration_enable_summary">Enable the local integration preference. Remote pairing and live commands are not available in this build yet.</string>
+    <string name="chatgpt_integration_connection">Connection status</string>
+    <string name="chatgpt_integration_not_enabled">Disabled</string>
+    <string name="chatgpt_integration_enabled_unpaired">Enabled locally · Not paired</string>
+    <string name="chatgpt_integration_pairing_unavailable">Device pairing and the ChatGPT relay are still under development.</string>
+    <string name="chatgpt_integration_permissions_group">Permissions</string>
+    <string name="chatgpt_integration_permissions_summary">ChatGPT may read your library and perform routine changes requested by you. Removing manga, deleting categories, and downloading chapters will require approval on this phone.</string>
+    <string name="chatgpt_integration_data_summary">Only manga metadata and reading progress will be exposed. Tracker credentials, extension cookies, and local file paths will never be shared.</string>
 </resources>

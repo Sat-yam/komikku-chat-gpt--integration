@@ -29,6 +29,7 @@ Repository conventions from `AGENTS.md` apply:
 
 - `ChatGptLibraryService` reads the library and chapter metadata through `GetLibraryManga`, `GetCategories` and `GetChaptersByMangaId`.
 - `ChatGptIntegrationPolicy` enforces enabled + paired state, explicit user intent for writes, and phone confirmation for sensitive operations.
+- The Settings menu now contains a ChatGPT integration screen with a persisted local enable/disable preference and an explicit unpaired/not-yet-available status.
 - No network endpoint, pairing screen, relay client or remote MCP server is enabled yet. The service is not exposed outside the app.
 
 ## Milestones
@@ -40,7 +41,8 @@ Repository conventions from `AGENTS.md` apply:
 - [ ] Build and test on Android CI / local Android SDK.
 
 ### M2 — Native integration controls
-- [ ] Settings screen: enable/disable, device pairing, connected state, disconnect.
+- [x] Settings screen: local enable/disable preference and honest unpaired status.
+- [ ] Device pairing, connected state and disconnect.
 - [ ] Device key generation and revocation using Android Keystore.
 - [ ] Audit history and phone-side confirmation queue.
 

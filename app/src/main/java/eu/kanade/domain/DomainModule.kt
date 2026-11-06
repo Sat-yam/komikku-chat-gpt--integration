@@ -1,5 +1,9 @@
 package eu.kanade.domain
 
+// KMK -->
+import eu.kanade.tachiyomi.integration.chatgpt.ChatGptLibraryService
+// KMK <--
+
 import eu.kanade.domain.chapter.interactor.GetAvailableScanlators
 import eu.kanade.domain.chapter.interactor.SetReadStatus
 import eu.kanade.domain.chapter.interactor.SyncChaptersWithSource
@@ -124,6 +128,9 @@ class DomainModule : InjektModule {
         addFactory { GetDuplicateLibraryManga(get()) }
         addFactory { GetFavorites(get()) }
         addFactory { GetLibraryManga(get()) }
+        // KMK -->
+        addFactory { ChatGptLibraryService(get(), get(), get()) }
+        // KMK <--
         addFactory { GetMangaWithChapters(get(), get()) }
         addFactory { GetMangaByUrlAndSourceId(get()) }
         addFactory { GetManga(get()) }

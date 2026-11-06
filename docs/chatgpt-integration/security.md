@@ -15,10 +15,17 @@ Implemented local identity foundation:
 3. App derives a stable device ID and a human-checkable fingerprint from SHA-256 of the encoded public key.
 4. A future relay-issued challenge of 32–512 bytes can be signed with the private key using SHA256withECDSA and a protocol-specific domain prefix.
 
+Pairing request preview now implemented:
+- The phone creates a QR payload containing protocol version, request ID/reference, device ID, public key, fingerprint, a random 256-bit nonce, issued-at time and a 10-minute expiry.
+- Komikku hashes the unsigned payload and signs that digest with the Android Keystore private key. The private key never enters the QR.
+- The short request reference is a lookup hint only; it must never be accepted as a bearer credential.
+
 Still planned:
-1. Pairing begins with a short-lived, one-time code issued by the relay and displayed by the app.
-3. Remote authorization exchanges the code and verifies a challenge signature for a narrowly scoped, revocable device pairing.
-4. App displays the connected remote client and supports immediate disconnect/revocation.
+1. A relay endpoint registers and rate-limits the short-lived request.
+2. The relay issues a fresh server challenge after request registration.
+3. The phone signs that server challenge and submits it over an authenticated outbound channel.
+4. The relay verifies the challenge response and obtains explicit user approval before creating a narrowly scoped, revocable pairing.
+5. The app displays the authenticated remote client and supports immediate disconnect/revocation.
 
 Never store private keys in ordinary preferences or source code. Never put provider credentials in logs. The current settings screen creates and displays public identity details and a locally generated QR request preview. It does not claim pairing, authenticate a remote client, or expose a network endpoint.
 

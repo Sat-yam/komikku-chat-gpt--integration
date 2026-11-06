@@ -39,8 +39,8 @@ Repository conventions from `AGENTS.md` apply:
 - The Settings menu now contains a ChatGPT integration screen with a persisted local enable/disable preference and an explicit unpaired/not-yet-available status.
 - The device identity manager creates a P-256 ECDSA signing key in Android Keystore, derives a stable public-key fingerprint/device ID, signs bounded relay challenges, and supports local key removal. The settings screen exposes key creation, public-key/fingerprint copy, and confirmation-gated local removal.
 - The settings screen can create the key, display/copy its fingerprint, copy its public key, and remove the local key after confirmation.
-- The pairing screen can now generate a QR pairing-request payload and 12-character request reference with a 10-minute local expiry. The payload includes only public device identity fields and a random nonce.
-- The QR is a local pairing-request preview only. No relay endpoint is configured, so this build does not establish a remote pairing or ChatGPT connection.
+- The pairing screen can now generate a QR pairing-request payload and 12-character request reference with a 10-minute local expiry. The payload includes public device identity fields, a random nonce, and a signature from the local Keystore key.
+- The QR is a locally signed pairing-request preview only. No relay endpoint is configured, so this build does not establish a remote pairing or ChatGPT connection.
 
 ## Milestones
 

@@ -69,7 +69,7 @@ class PreferenceModule(val app: Application) : InjektModule {
         // KMK -->
         addSingletonFactory { ChatGptIntegrationPreferences(get()) }
         addSingletonFactory { ChatGptDeviceIdentity() }
-        addSingletonFactory { ChatGptPairingRequestFactory() }
+        addSingletonFactory { ChatGptPairingRequestFactory(get<ChatGptDeviceIdentity>()::signPairingChallenge) }
         addSingletonFactory { ChatGptPairingQrCodeGenerator() }
         // KMK <--
         addSingletonFactory {

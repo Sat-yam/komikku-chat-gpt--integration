@@ -1,5 +1,7 @@
 package eu.kanade.domain.chatgpt.service
 
+import java.nio.charset.StandardCharsets
+import java.security.MessageDigest
 import java.security.SecureRandom
 import java.util.Base64
 import java.util.UUID
@@ -36,6 +38,7 @@ data class ChatGptPairingRequest(
  * bearer credential by the relay.
  */
 class ChatGptPairingRequestFactory(
+    private val signChallenge: (ByteArray) -> ByteArray,
     private val secureRandom: SecureRandom = SecureRandom(),
 ) {
     fun create(
@@ -56,7 +59,7 @@ class ChatGptPairingRequestFactory(
         val expiresAt = nowEpochSeconds + REQUEST_TTL_SECONDS
         val nonceBase64 = Base64.getUrlEncoder().withoutPadding().encodeToString(nonce)
 
-        val payload = buildString {
+        val unsignedPayload = buildString {
             append("{")
             append("\"type\":\"komikku_chatgpt_pairing_request\",")
             append("\"version\":1,")
@@ -72,6 +75,13 @@ class ChatGptPairingRequestFactory(
             append("\"expires_at\":$expiresAt")
             append("}")
         }
+
+        val challenge = MessageDigest.getInstance("SHA-256")
+            .digest(unsignedPayload.toByteArray(StandardCharsets.UTF_8))
+        val deviceSignature = signChallenge(challenge)
+        require(deviceSignature.isNotEmpty()) { "Device identity returned an empty signature" }
+        val signatureBase64 = Base64.getUrlEncoder().withoutPadding().encodeToString(deviceSignature)
+        val payload = unsignedPayload.dropLast(1) + ",\"device_signature\":\"$signatureBase64\"}"
 
         return ChatGptPairingRequest(
             requestId = requestId,

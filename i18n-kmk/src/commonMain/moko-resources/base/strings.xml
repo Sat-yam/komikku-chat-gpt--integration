@@ -280,7 +280,7 @@
     <string name="chatgpt_pairing_request_code">Pairing request reference</string>
     <string name="chatgpt_pairing_request_expires">Request expires in %1$s</string>
     <string name="chatgpt_pairing_request_expired">This request has expired. Generate a new request.</string>
-    <string name="chatgpt_pairing_request_local_only">This QR contains public device details only. It is not proof of pairing; the relay must verify a fresh challenge signature.</string>
+    <string name="chatgpt_pairing_request_local_only">This QR contains public device details and a device signature. It is not proof of pairing; the relay must verify a fresh server challenge and obtain user approval.</string>
     <string name="chatgpt_pairing_request_fingerprint">Device fingerprint: %1$s</string>
     <string name="chatgpt_pairing_copy_code">Copy code</string>
     <string name="chatgpt_pairing_regenerate">New request</string>

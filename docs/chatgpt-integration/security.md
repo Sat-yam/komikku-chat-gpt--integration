@@ -9,14 +9,19 @@
 
 ## Pairing and identity
 
-Planned implementation:
+Implemented local identity foundation:
 1. User enables integration from Komikku settings.
-2. App creates a device key pair in Android Keystore.
-3. Pairing begins with a short-lived, one-time code displayed by the app.
-4. Remote authorization exchanges the code for a narrowly scoped, revocable device pairing.
-5. App displays the connected remote client and supports immediate disconnect/revocation.
+2. App creates a P-256 ECDSA signing key pair in Android Keystore (private key is non-exportable through the app API).
+3. App derives a stable device ID and a human-checkable fingerprint from SHA-256 of the encoded public key.
+4. A future relay-issued challenge of 32–512 bytes can be signed with the private key using SHA256withECDSA and a protocol-specific domain prefix.
 
-Never store private keys in ordinary preferences or source code. Never put provider credentials in logs.
+Still planned:
+1. App creates a device key pair in Android Keystore (now implemented).
+2. Pairing begins with a short-lived, one-time code issued by the relay and displayed by the app.
+3. Remote authorization exchanges the code and verifies a challenge signature for a narrowly scoped, revocable device pairing.
+4. App displays the connected remote client and supports immediate disconnect/revocation.
+
+Never store private keys in ordinary preferences or source code. Never put provider credentials in logs. The current settings screen only creates and displays public identity details; it does not claim pairing or expose a network endpoint.
 
 ## Request validation
 

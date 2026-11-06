@@ -252,4 +252,20 @@
     <string name="chatgpt_integration_permissions_group">Permissions</string>
     <string name="chatgpt_integration_permissions_summary">ChatGPT may read your library and perform routine changes requested by you. Removing manga, deleting categories, and downloading chapters will require approval on this phone.</string>
     <string name="chatgpt_integration_data_summary">Only manga metadata and reading progress will be exposed. Tracker credentials, extension cookies, and local file paths will never be shared.</string>
+
+    <string name="chatgpt_integration_identity_group">Device identity</string>
+    <string name="chatgpt_integration_identity_create">Create secure device identity</string>
+    <string name="chatgpt_integration_identity_create_summary">Create a non-exportable signing key on this phone. Enable the integration first.</string>
+    <string name="chatgpt_integration_identity_loading">Checking this phone for an existing device identity…</string>
+    <string name="chatgpt_integration_identity_read_error">Could not read the device identity from Android Keystore.</string>
+    <string name="chatgpt_integration_identity_not_created">No local device identity has been created.</string>
+    <string name="chatgpt_integration_identity_fingerprint">Device key fingerprint · tap to copy</string>
+    <string name="chatgpt_integration_identity_copy_public_key">Copy public key</string>
+    <string name="chatgpt_integration_identity_copy_public_key_summary">The public key is safe to share during a future pairing step.</string>
+    <string name="chatgpt_integration_identity_remove">Remove local device identity</string>
+    <string name="chatgpt_integration_identity_remove_summary">Delete this phone’s local signing key.</string>
+    <string name="chatgpt_integration_identity_remove_title">Remove device identity?</string>
+    <string name="chatgpt_integration_identity_remove_body">This deletes the signing key stored by Komikku on this phone. It does not revoke a remote pairing.</string>
+    <string name="chatgpt_integration_identity_remove_confirm">Remove key</string>
+    <string name="chatgpt_integration_identity_ready">Local signing key is ready. This phone is not paired with a relay yet.</string>
 </resources>

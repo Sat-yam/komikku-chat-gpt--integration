@@ -30,6 +30,8 @@ Repository conventions from `AGENTS.md` apply:
 - `ChatGptLibraryService` reads the library and chapter metadata through `GetLibraryManga`, `GetCategories` and `GetChaptersByMangaId`.
 - `ChatGptIntegrationPolicy` enforces enabled + paired state, explicit user intent for writes, and phone confirmation for sensitive operations.
 - The Settings menu now contains a ChatGPT integration screen with a persisted local enable/disable preference and an explicit unpaired/not-yet-available status.
+- The device identity manager creates a P-256 ECDSA signing key in Android Keystore, derives a stable public-key fingerprint/device ID, signs bounded relay challenges, and supports local key removal.
+- The settings screen can create the key, display/copy its fingerprint, copy its public key, and remove the local key after confirmation.
 - No network endpoint, pairing screen, relay client or remote MCP server is enabled yet. The service is not exposed outside the app.
 
 ## Milestones
@@ -43,7 +45,8 @@ Repository conventions from `AGENTS.md` apply:
 ### M2 — Native integration controls
 - [x] Settings screen: local enable/disable preference and honest unpaired status.
 - [ ] Device pairing, connected state and disconnect.
-- [ ] Device key generation and revocation using Android Keystore.
+- [x] Device key generation and local key removal using Android Keystore.
+- [ ] Remote pairing and relay-side revocation.
 - [ ] Audit history and phone-side confirmation queue.
 
 ### M3 — Write operations

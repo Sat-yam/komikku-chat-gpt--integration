@@ -16,8 +16,7 @@ Implemented local identity foundation:
 4. A future relay-issued challenge of 32–512 bytes can be signed with the private key using SHA256withECDSA and a protocol-specific domain prefix.
 
 Still planned:
-1. App creates a device key pair in Android Keystore (now implemented).
-2. Pairing begins with a short-lived, one-time code issued by the relay and displayed by the app.
+1. Pairing begins with a short-lived, one-time code issued by the relay and displayed by the app.
 3. Remote authorization exchanges the code and verifies a challenge signature for a narrowly scoped, revocable device pairing.
 4. App displays the connected remote client and supports immediate disconnect/revocation.
 

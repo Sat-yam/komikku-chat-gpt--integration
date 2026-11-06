@@ -3,7 +3,6 @@ package eu.kanade.presentation.more.settings.screen
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import android.widget.Toast
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -24,6 +23,7 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import tachiyomi.i18n.MR
 import tachiyomi.i18n.kmk.KMR
 import tachiyomi.presentation.core.i18n.stringResource
 import tachiyomi.presentation.core.util.collectAsState
@@ -82,11 +82,7 @@ object SettingsChatGptScreen : SearchableSettings {
                                     }
                                     identity = null
                                 } catch (_: Exception) {
-                                    Toast.makeText(
-                                        context,
-                                        "Could not remove the local device identity",
-                                        Toast.LENGTH_LONG,
-                                    ).show()
+                                    identityReadFailed = true
                                 } finally {
                                     identityWorking = false
                                 }
@@ -98,7 +94,7 @@ object SettingsChatGptScreen : SearchableSettings {
                 },
                 dismissButton = {
                     TextButton(onClick = { showRemoveIdentityDialog = false }) {
-                        Text(stringResource(KMR.strings.action_cancel))
+                        Text(stringResource(MR.strings.action_cancel))
                     }
                 },
             )
@@ -107,11 +103,6 @@ object SettingsChatGptScreen : SearchableSettings {
         fun copyToClipboard(label: String, value: String) {
             val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             clipboard.setPrimaryClip(ClipData.newPlainText(label, value))
-            Toast.makeText(
-                context,
-                context.getString(eu.kanade.tachiyomi.R.string.copied_to_clipboard),
-                Toast.LENGTH_SHORT,
-            ).show()
         }
 
         val identityItems = when {
@@ -139,11 +130,7 @@ object SettingsChatGptScreen : SearchableSettings {
                                 }
                                 identityReadFailed = false
                             } catch (_: Exception) {
-                                Toast.makeText(
-                                    context,
-                                    "Could not create a secure device identity",
-                                    Toast.LENGTH_LONG,
-                                ).show()
+                                identityReadFailed = true
                             } finally {
                                 identityWorking = false
                             }
@@ -214,7 +201,6 @@ object SettingsChatGptScreen : SearchableSettings {
             Preference.PreferenceGroup(
                 title = stringResource(KMR.strings.chatgpt_integration_identity_group),
                 preferenceItems = identityItems,
-                enabled = enabled,
             ),
             Preference.PreferenceGroup(
                 title = stringResource(KMR.strings.chatgpt_integration_permissions_group),
